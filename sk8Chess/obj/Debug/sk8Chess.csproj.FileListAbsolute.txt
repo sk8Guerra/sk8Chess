@@ -52,3 +52,6 @@ C:\Users\Monitor41P1\Google Drive\PracticasMonitorPlus\C#\sk8Chess\sk8Chess\obj\
 C:\Users\Monitor41P1\Google Drive\PracticasMonitorPlus\C#\sk8Chess\sk8Chess\obj\Debug\sk8Chess.g.resources
 C:\Users\Monitor41P1\Google Drive\PracticasMonitorPlus\C#\sk8Chess\sk8Chess\obj\Debug\sk8Chess.Properties.Resources.resources
 C:\Users\Monitor41P1\Google Drive\PracticasMonitorPlus\C#\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csproj.GenerateResource.Cache
+C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\bin\Debug\sk8Chess.exe.config
+C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\obj\Debug\sk8Chess.exe
+C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\obj\Debug\sk8Chess.pdb
