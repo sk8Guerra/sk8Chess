@@ -5,7 +5,8 @@ All started with a school project, and I've been improving it, then and decided 
 
 #Languages
 
-This chess has been developed by usign WPF (C# and XAML), and the material design of [ButchersBoy]
+This chess has been developed by using WPF (C# and XAML), and the material design of [ButchersBoy]
 (https://github.com/ButchersBoy/MaterialDesignInXamlToolkit)
+
 
 
