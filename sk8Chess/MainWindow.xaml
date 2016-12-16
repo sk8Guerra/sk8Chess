@@ -1,0 +1,265 @@
+﻿<Window x:Class="sk8Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sk8Chess"
+        mc:Ignorable="d"
+        Title="sk8Chess" Height="685" Width="875" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        
+        Icon="Resources\sk8ChessIcon.png"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Menu Height="20">
+                <MenuItem Header="_File" Height="20">
+                    <MenuItem Header="New Game" Click="RestartGame">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Gamepad"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="Exit" InputGestureText="Ctrl+E" Click="ExitGame">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ExitToApp" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Menu Height="20">
+                <MenuItem Header="_Help" Height="20">
+                    <MenuItem Header="How to play?" Click="HowToPlay">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Help"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Menu Height="20">
+                <MenuItem Header="_About" Height="20">
+                    <MenuItem Header="About sk8Chess" Click="AboutSk8Chess">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Information"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+
+        <Grid Grid.Column="3" HorizontalAlignment="Right">
+            <materialDesign:PopupBox Margin="16,0,16,0" StaysOpen="False">
+                <Grid Width="300" Margin="8,8,8,8" ShowGridLines="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="8,8,8,16"><Run Text="OPTIONS"/></TextBlock>
+                    <Button Grid.Row="1" Content="Settings" Click="OpeningSettings"/>
+                    <Button Grid.Row="2" Content="Music player" Click="AbrirReproductor"/>
+                </Grid>
+            </materialDesign:PopupBox>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Height="20">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Name="tagA" TextAlignment="Center" VerticalAlignment="Center" Text="A" FontSize="20" Width="75"/>
+            <TextBlock Grid.Column="1" Name="tagB" TextAlignment="Center" VerticalAlignment="Center" Text="B" FontSize="20" Width="75"/>
+            <TextBlock Grid.Column="2" Name="tagC" TextAlignment="Center" VerticalAlignment="Center" Text="C" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="3" Name="tagD" TextAlignment="Center" VerticalAlignment="Center" Text="D" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="4" Name="tagE" TextAlignment="Center" VerticalAlignment="Center" Text="E" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="5" Name="tagF" TextAlignment="Center" VerticalAlignment="Center" Text="F" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="6" Name="tagG" TextAlignment="Center" VerticalAlignment="Center" Text="G" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="7" Name="tagH" TextAlignment="Center" VerticalAlignment="Center" Text="H" FontSize="20" Width="75" />
+        </Grid>
+
+        <Grid Height="551" Width="590" Grid.Column="1" Grid.Row="2" Name="Tablero" MouseMove="Tablero_MouseMove" MouseDown="Tablero_MouseDown"> <!--ShowGridLines="True"-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="3" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Name="tagA1" TextAlignment="Center" VerticalAlignment="Center" Text="A" FontSize="20" Width="75"/>
+            <TextBlock Grid.Column="1" Name="tagB2" TextAlignment="Center" VerticalAlignment="Center" Text="B" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="2" Name="tagC3" TextAlignment="Center" VerticalAlignment="Center" Text="C" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="3" Name="tagD4" TextAlignment="Center" VerticalAlignment="Center" Text="D" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="4" Name="tagE5" TextAlignment="Center" VerticalAlignment="Center" Text="E" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="5" Name="tagF6" TextAlignment="Center" VerticalAlignment="Center" Text="F" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="6" Name="tagG7" TextAlignment="Center" VerticalAlignment="Center" Text="G" FontSize="20" Width="75" />
+            <TextBlock Grid.Column="7" Name="tagH8" TextAlignment="Center" VerticalAlignment="Center" Text="H" FontSize="20" Width="75" />
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="num8" TextAlignment="Center" VerticalAlignment="Center" Text="8" FontSize="20"/>
+            <TextBlock Grid.Row="1" Name="num7" TextAlignment="Center" VerticalAlignment="Center" Text="7" FontSize="20"/>
+            <TextBlock Grid.Row="2" Name="num6" TextAlignment="Center" VerticalAlignment="Center" Text="6" FontSize="20"/>
+            <TextBlock Grid.Row="3" Name="num5" TextAlignment="Center" VerticalAlignment="Center" Text="5" FontSize="20"/>
+            <TextBlock Grid.Row="4" Name="num4" TextAlignment="Center" VerticalAlignment="Center" Text="4" FontSize="20"/>
+            <TextBlock Grid.Row="5" Name="num3" TextAlignment="Center" VerticalAlignment="Center" Text="3" FontSize="20"/>
+            <TextBlock Grid.Row="6" Name="num2" TextAlignment="Center" VerticalAlignment="Center" Text="2" FontSize="20"/>
+            <TextBlock Grid.Row="7" Name="num" TextAlignment="Center" VerticalAlignment="Center" Text="1" FontSize="20"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="num18" TextAlignment="Center" VerticalAlignment="Center" Text="8" FontSize="20"/>
+            <TextBlock Grid.Row="1" Name="num17" TextAlignment="Center" VerticalAlignment="Center" Text="7" FontSize="20"/>
+            <TextBlock Grid.Row="2" Name="num16" TextAlignment="Center" VerticalAlignment="Center" Text="6" FontSize="20"/>
+            <TextBlock Grid.Row="3" Name="num15" TextAlignment="Center" VerticalAlignment="Center" Text="5" FontSize="20"/>
+            <TextBlock Grid.Row="4" Name="num14" TextAlignment="Center" VerticalAlignment="Center" Text="4" FontSize="20"/>
+            <TextBlock Grid.Row="5" Name="num13" TextAlignment="Center" VerticalAlignment="Center" Text="3" FontSize="20"/>
+            <TextBlock Grid.Row="6" Name="num12" TextAlignment="Center" VerticalAlignment="Center" Text="2" FontSize="20"/>
+            <TextBlock Grid.Row="7" Name="num11" TextAlignment="Center" VerticalAlignment="Center" Text="1" FontSize="20"/>
+        </Grid>
+
+        <Grid Name="Controles" Grid.Column="4" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="15"/>
+                <RowDefinition />
+                <RowDefinition Height="15"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Separator Grid.Row="1" Width="150"></Separator>
+            <Separator Grid.Row="3" Width="150"></Separator>
+            
+                <Grid >
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Name="Time" Grid.Column="1" FontSize="15" Text="time:" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBlock Name="Timer" Grid.Row="1" Grid.Column="1" FontSize="40" TextAlignment="Center" VerticalAlignment="Center" Text="00:00:00"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="StartTime" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        Margin="0 0 8 0" HorizontalAlignment="Right" 
+                        ToolTip="Start" Click="StartingTime" >
+                        <materialDesign:PackIcon Kind="Play" Height="24" Width="24" />
+                    </Button>
+                    <Button Name="StopTime" Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Margin="0 0 8 0" HorizontalAlignment="Right"  
+                        ToolTip="Pause" Click="PausingTime">
+                        <materialDesign:PackIcon Kind="Pause" Height="24" Width="24" />
+                    </Button>
+                    <Button Name="RestartTime" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                        Margin="0 0 8 0" HorizontalAlignment="Left"
+                        ToolTip="Restart" Click="RestartingTime">
+                        <materialDesign:PackIcon Kind="Stop" Height="24" Width="24" />
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Name="Position" FontSize="15" TextAlignment="Left" VerticalAlignment="Bottom" Text="position:"/>
+                <TextBlock Grid.Row="1" Name="Positions" FontSize="60" TextAlignment="Center" VerticalAlignment="Center" Text="-,-"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition />
+                    <RowDefinition Height="20"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Name="WhiteTurnn" FontSize="15" TextAlignment="Left" VerticalAlignment="Bottom" Text="white turn:"/>
+                <TextBlock Grid.Row="2" Name="BlackTurnn" FontSize="15" TextAlignment="Left" VerticalAlignment="Bottom" Text="black turn:"/>
+
+                <Ellipse Name="WhiteTurn" Grid.Row="1" Panel.ZIndex="2" Fill="GreenYellow"  Canvas.Left="25" Canvas.Top="25" Width="50" Height="50"/>
+                <Ellipse Name="BlackTurn" Grid.Row="3" Panel.ZIndex="2" Fill="GreenYellow" Canvas.Left="25" Canvas.Top="25" Width="50" Height="50"/>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

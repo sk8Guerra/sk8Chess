@@ -1,0 +1,37 @@
+﻿<Window x:Class="sk8Chess.AboutSk8Chess"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sk8Chess"
+        mc:Ignorable="d"
+        Title="About Sk8Chess" Height="365" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        
+        Icon="Resources\sk8ChessIcon.png"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock TextAlignment="Center">
+                <Image Source="Resources\sk8ChessIcon.png" Height="100" />
+            </TextBlock>
+            <TextBlock Text="sk8Chess" FontSize="50" TextAlignment="Center"/>
+            <TextBlock Text="sk8Chess Pro 2016"/>
+            <TextBlock Text="Version 2.1 Update 5"/>
+            <TextBlock Text="© 2016 Guerra Corporation."/>
+            <TextBlock Text="All rights reserved."/>
+            <TextBlock Text="Made by Jorge and Jeremy."/>
+            <Separator Margin="5"></Separator>
+                <StackPanel >
+                <Button Content="ACCEPT" Click="CloseAbout"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
