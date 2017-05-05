@@ -208,7 +208,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is not your turn");
+                        NotYourTurnDialog.IsOpen = true;
                         objeto = null;
                     }
                 }
@@ -251,7 +251,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is not your turn");
+                        NotYourTurnDialog.IsOpen = true;
                         objeto = null;
                     }
                 }
@@ -899,63 +899,58 @@ namespace sk8Chess
             StopTime.Visibility = Visibility.Visible;
             #endregion
         }
-
-        private void RestartingTime(object sender, RoutedEventArgs e)
+        
+        private void AcceptDialogRestartGame(object sender, RoutedEventArgs e)
         {
             newGame();
         }
 
         private void RestartGame(object sender, RoutedEventArgs e)
         {
-            newGame();
+            timer.Stop();
+            RestartGameDialog.IsOpen = true;
         }
 
         public void newGame()
         {
             #region New game
-            timer.Stop();
+            Tablero.Children.Clear();
 
-            MessageBoxResult question = MessageBox.Show("Are you sure you want to restart the game? You will lose the progress",
-                "¡WARNING!", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (question == MessageBoxResult.Yes)
+            for (int x = 0; x <= 7; x++)
             {
-                Tablero.Children.Clear();
-
-                for (int x = 0; x <= 7; x++)
+                for (int y = 0; y <= 7; y++)
                 {
-                    for (int y = 0; y <= 7; y++)
-                    {
-                        matriz[x, y] = null;
-                    }
+                    matriz[x, y] = null;
                 }
-
-                turn = true;
-                turnColor = true;
-                alternador = true;
-
-                paintingBoardRedAndBlue();
-                placingPieces();
-
-                Timer.Text = "00:00:00";
-
-                seconds = 0;
-                minutes = 0;
-                hours = 0;
-
-                Timer.Text = (String.Format(hours.ToString("00")) + ":" + String.Format(minutes.ToString("00")) +
-                ":" + String.Format(seconds.ToString("00")));
-
-                StopTime.Visibility = Visibility.Hidden;
-                StartTime.Visibility = Visibility.Visible;
-                StartTime.IsEnabled = false;
-                RestartTime.IsEnabled = false;
-                
-                Positions.Text = "-,-";
-
-                WhiteTurn.Fill = greenTurn;
-                BlackTurn.Fill = redTurn;
             }
+
+            turn = true;
+            turnColor = true;
+            alternador = true;
+
+            paintingBoardRedAndBlue();
+            placingPieces();
+
+            Timer.Text = "00:00:00";
+
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+
+            Timer.Text = (String.Format(hours.ToString("00")) + ":" + String.Format(minutes.ToString("00")) +
+            ":" + String.Format(seconds.ToString("00")));
+
+            StopTime.Visibility = Visibility.Hidden;
+            StartTime.Visibility = Visibility.Visible;
+            StartTime.IsEnabled = false;
+            RestartTime.IsEnabled = false;
+                
+            Positions.Text = "-,-";
+
+            WhiteTurn.Fill = greenTurn;
+            BlackTurn.Fill = redTurn;
+
+            RestartGameDialog.IsOpen = false;
             #endregion
         }
 
@@ -1163,6 +1158,16 @@ namespace sk8Chess
             #endregion
         }
 
+        private void CloseDialogNotTurn(object sender, RoutedEventArgs e)
+        {
+            NotYourTurnDialog.IsOpen = false;
+        }
+
+        private void CloseDialogRestarGame(object sender, RoutedEventArgs e)
+        {
+            RestartGameDialog.IsOpen = false;
+            timer.Start();
+        }
         private void paintingBoardGreenAndYellow()
         {
             #region Painting Red and Blue
