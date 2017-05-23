@@ -208,7 +208,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        NotYourTurnDialog.IsOpen = true;
+                        ItIsNotYourTurnSnackbar.IsActive = true;
                         objeto = null;
                     }
                 }
@@ -251,7 +251,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        NotYourTurnDialog.IsOpen = true;
+                        ItIsNotYourTurnSnackbar.IsActive = true;
                         objeto = null;
                     }
                 }
@@ -296,7 +296,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only move doing a + ");
+                RookSnackbar.IsActive = true;
                 objeto = null;
                 #endregion
             }
@@ -339,7 +339,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only move doing a + ");
+                RookSnackbar.IsActive = true;
                 objeto = null;
                 #endregion
             }
@@ -1157,17 +1157,19 @@ namespace sk8Chess
             }
             #endregion
         }
-
-        private void CloseDialogNotTurn(object sender, RoutedEventArgs e)
-        {
-            NotYourTurnDialog.IsOpen = false;
-        }
-
+        
         private void CloseDialogRestarGame(object sender, RoutedEventArgs e)
         {
             RestartGameDialog.IsOpen = false;
             timer.Start();
         }
+
+        private void AcceptSnackbar(object sender, RoutedEventArgs e)
+        {
+            ItIsNotYourTurnSnackbar.IsActive = false;
+            RookSnackbar.IsActive = false;
+        }
+
         private void paintingBoardGreenAndYellow()
         {
             #region Painting Red and Blue

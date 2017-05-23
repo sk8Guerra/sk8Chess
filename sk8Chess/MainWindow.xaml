@@ -127,19 +127,7 @@
                 <TextBlock Grid.Column="7" Name="tagH" TextAlignment="Center" VerticalAlignment="Center" Text="H" FontSize="20" Width="75" />
             </Grid>
 
-            <materialDesign:DialogHost Height="551" Width="590" Grid.Column="1" Grid.Row="2" Name="NotYourTurnDialog">
-                <materialDesign:DialogHost.DialogContent >
-                    <Grid Margin="20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <TextBlock
-                               Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="0 6 0 8">It is not your turn</TextBlock>
-                        <Button Style="{StaticResource MaterialDesignFlatButton}" Click="CloseDialogNotTurn" Grid.Row="1"
-                         ToolTip="Acept to continue" Margin="200 0 0 0">ACCEPT</Button>
-                    </Grid>
-                </materialDesign:DialogHost.DialogContent>
+            <Grid Grid.Column="1" Grid.Row="2">
                 <Grid Height="551" Width="590" Grid.Column="1" Grid.Row="2" Name="Tablero" 
                   MouseMove="Tablero_MouseMove" MouseDown="Tablero_MouseDown">
                     <Grid.ColumnDefinitions>
@@ -164,7 +152,18 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                 </Grid>
-            </materialDesign:DialogHost>
+                
+                <materialDesign:Snackbar Name="ItIsNotYourTurnSnackbar" IsActive="False" Grid.Column="4" Grid.Row="7">
+                    <materialDesign:SnackbarMessage Content="It is not your turn"                                                   
+                                                        ActionContent="ACCEPT" ActionClick="AcceptSnackbar"/>
+                </materialDesign:Snackbar>
+
+                <materialDesign:Snackbar Name="RookSnackbar" IsActive="False" Grid.Column="4" Grid.Row="7">
+                    <materialDesign:SnackbarMessage Content="You can only move doing a + "                                                   
+                                                        ActionContent="ACCEPT" ActionClick="AcceptSnackbar"/>
+                </materialDesign:Snackbar>
+
+            </Grid>
 
             <Grid Grid.Column="1" Grid.Row="3" >
                 <Grid.ColumnDefinitions >
