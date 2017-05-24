@@ -152,17 +152,9 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                 </Grid>
-                
-                <materialDesign:Snackbar Name="ItIsNotYourTurnSnackbar" IsActive="False" Grid.Column="4" Grid.Row="7">
-                    <materialDesign:SnackbarMessage Content="It is not your turn"                                                   
-                                                        ActionContent="ACCEPT" ActionClick="AcceptSnackbar"/>
-                </materialDesign:Snackbar>
 
-                <materialDesign:Snackbar Name="RookSnackbar" IsActive="False" Grid.Column="4" Grid.Row="7">
-                    <materialDesign:SnackbarMessage Content="You can only move doing a + "                                                   
-                                                        ActionContent="ACCEPT" ActionClick="AcceptSnackbar"/>
-                </materialDesign:Snackbar>
-
+                <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
+                                              Name="Notification" />
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="3" >

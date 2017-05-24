@@ -129,6 +129,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Rules\LEYES DEL AJEDREZ DE LA FIDE.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <Resource Include="Resources\sk8ChessIcon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

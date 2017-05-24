@@ -7,6 +7,8 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Media;
+using MaterialDesignThemes.Wpf;
+using System.IO;
 
 namespace sk8Chess
 {
@@ -14,7 +16,7 @@ namespace sk8Chess
     {
         DispatcherTimer timer = new DispatcherTimer();
         int seconds, minutes, hours;
-
+        
         object[,] matriz;
       
         private bool turn = true;
@@ -35,6 +37,11 @@ namespace sk8Chess
         
         public MainWindow()
         {
+            /*
+            var myMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
+            Notification.MessageQueue = myMessageQueue;
+            */
+
             matriz = new object[8, 8];
             InitializeComponent();
             paintingBoardRedAndBlue();
@@ -208,7 +215,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        ItIsNotYourTurnSnackbar.IsActive = true;
+                        Notification.MessageQueue.Enqueue("It is not your turn", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                 }
@@ -251,7 +258,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        ItIsNotYourTurnSnackbar.IsActive = true;
+                        Notification.MessageQueue.Enqueue("It is not your turn", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                 }
@@ -296,7 +303,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                RookSnackbar.IsActive = true;
+                Notification.MessageQueue.Enqueue("You can only move doing a +", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -339,7 +346,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                RookSnackbar.IsActive = true;
+                Notification.MessageQueue.Enqueue("You can only move doing a +", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -369,7 +376,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only make movements doing an L");
+                Notification.MessageQueue.Enqueue("You can only make movements doing an L", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -399,7 +406,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only make movements doing an L");
+                Notification.MessageQueue.Enqueue("You can only make movements doing an L", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -431,7 +438,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only move doing an X");
+                Notification.MessageQueue.Enqueue("You can only move doing an X", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -463,7 +470,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only move doing an X");
+                Notification.MessageQueue.Enqueue("You can only move doing an X", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -494,7 +501,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only make movements around you");
+                Notification.MessageQueue.Enqueue("You can only make movements around you", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -525,7 +532,7 @@ namespace sk8Chess
             else
             {
                 #region Wrong movement
-                MessageBox.Show("You can only make movements around you");
+                Notification.MessageQueue.Enqueue("You can only make movements around you", "ACCEPT", () => AcceptNotification());
                 objeto = null;
                 #endregion
             }
@@ -621,7 +628,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is ocuped");
+                        Notification.MessageQueue.Enqueue("It is ocuped", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -638,7 +645,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is ocuped");
+                        Notification.MessageQueue.Enqueue("It is ocuped", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -652,9 +659,16 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is empty");
+                        Notification.MessageQueue.Enqueue("It is empty", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
+                    #endregion
+                }
+                else
+                {
+                    #region Wrong movement
+                    Notification.MessageQueue.Enqueue("You can only move one or two positions in front of you", "ACCEPT", () => AcceptNotification());
+                    objeto = null;
                     #endregion
                 }
                 #endregion
@@ -674,7 +688,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is ocuped");
+                        Notification.MessageQueue.Enqueue("It is ocuped", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -688,7 +702,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is empty");
+                        Notification.MessageQueue.Enqueue("It is empty", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -696,7 +710,7 @@ namespace sk8Chess
                 else
                 {
                     #region Wrong movement
-                    MessageBox.Show("You can only move one position in front of you");
+                    Notification.MessageQueue.Enqueue("ou can only move one position in front of you", "ACCEPT", () => AcceptNotification());
                     objeto = null;
                     #endregion
                 }
@@ -721,7 +735,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is ocuped");
+                        Notification.MessageQueue.Enqueue("It is ocuped", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -738,7 +752,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is ocuped");
+                        Notification.MessageQueue.Enqueue("It is ocuped", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -746,20 +760,28 @@ namespace sk8Chess
                 else if ((mouseY == newY + 1) && ((mouseX == newX - 1) || (mouseX == newX + 1)))
                 {
                     #region Eating movement
-                    if (((sk8Chess.Pieces)matriz[mouseX, mouseY]) == null)
+                    if (matriz[mouseX, mouseY] != null)
                     {
-                        MessageBox.Show("It is ocuped");
-                        objeto = null;
+                        blackEating();
                     }
                     else
                     {
-                        
+                        Notification.MessageQueue.Enqueue("It is empty", "ACCEPT", () => AcceptNotification());
+                        objeto = null;
                     }
+                    #endregion
+                }
+                else
+                {
+                    #region Wrong movement
+                    Notification.MessageQueue.Enqueue("You can only move one or two positions in front of you", "ACCEPT", () => AcceptNotification());
+                    objeto = null;
                     #endregion
                 }
                 #endregion
             }
-            else if(newY != 1){
+            else if (newY != 1)
+            {
                 #region After starting
                 if((mouseY == newY + 1) && (mouseX == newX))
                 {
@@ -773,7 +795,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is ocuped");
+                        Notification.MessageQueue.Enqueue("It is ocuped", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -787,7 +809,7 @@ namespace sk8Chess
                     }
                     else
                     {
-                        MessageBox.Show("It is empty");
+                        Notification.MessageQueue.Enqueue("It is emprty", "ACCEPT", () => AcceptNotification());
                         objeto = null;
                     }
                     #endregion
@@ -795,7 +817,7 @@ namespace sk8Chess
                 else
                 {
                     #region Wrong movement
-                    MessageBox.Show("You can only move one position in front of you");
+                    Notification.MessageQueue.Enqueue("You can only move one in front of you", "ACCEPT", () => AcceptNotification());
                     objeto = null;
                     #endregion
                 }
@@ -827,7 +849,7 @@ namespace sk8Chess
             }
             else
             {
-                MessageBox.Show("It is an incorrect movement");
+                Notification.MessageQueue.Enqueue("It is an incorrect movement", "ACCEPT", () => AcceptNotification());
                 objeto = null;
             }
             #endregion
@@ -857,7 +879,7 @@ namespace sk8Chess
             }
             else
             {
-                MessageBox.Show("It is an incorrect movement");
+                Notification.MessageQueue.Enqueue("It is an incorrect movement", "ACCEPT", () => AcceptNotification());
                 objeto = null;
             }
             #endregion
@@ -1042,8 +1064,7 @@ namespace sk8Chess
 
         private void HowToPlay(object sender, RoutedEventArgs e)
         {
-            Process.Start("C:\\Users\\Monitor41P1\\Google Drive\\PracticasMonitorPlus " 
-                + "\\C#\\sk8Chess\\sk8Chess\\bin\\Debug\\Reglas\\LEYES DEL AJEDREZ DE LA FIDE.pdf");
+            //Process.Start("../Rules/LEYES DEL AJEDREZ DE LA FIDE.pdf");
         }
 
         private void AbrirReproductor(object sender, RoutedEventArgs e)
@@ -1163,11 +1184,10 @@ namespace sk8Chess
             RestartGameDialog.IsOpen = false;
             timer.Start();
         }
-
-        private void AcceptSnackbar(object sender, RoutedEventArgs e)
+        
+        private void AcceptNotification()
         {
-            ItIsNotYourTurnSnackbar.IsActive = false;
-            RookSnackbar.IsActive = false;
+            Notification.IsActive = false;
         }
 
         private void paintingBoardGreenAndYellow()
