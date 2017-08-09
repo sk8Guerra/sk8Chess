@@ -1064,7 +1064,9 @@ namespace sk8Chess
 
         private void HowToPlay(object sender, RoutedEventArgs e)
         {
-            //Process.Start("../Rules/LEYES DEL AJEDREZ DE LA FIDE.pdf");
+            ////Process.Start("../Rules/LEYES DEL AJEDREZ DE LA FIDE.pdf");
+            //PDF.Navigate(new Uri("about:blank"));
+            //PDF.Navigate("Rules/LEYES DEL AJEDREZ DE LA FIDE.pdf");
         }
 
         private void AbrirReproductor(object sender, RoutedEventArgs e)
