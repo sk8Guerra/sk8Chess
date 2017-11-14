@@ -79,3 +79,31 @@ C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\obj\Debug\sk8Chess.Properties.Res
 C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csproj.GenerateResource.Cache
 C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\obj\Debug\sk8Chess.exe
 C:\Users\sk8Guerra\Documents\sk8Chess\sk8Chess\obj\Debug\sk8Chess.pdb
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\sk8Chess.exe.config
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\sk8Chess.exe
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\sk8Chess.pdb
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\MaterialDesignColors.dll
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csprojResolveAssemblyReference.cache
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\AboutSk8Chess.g.cs
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\MainWindow.g.cs
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\Pieces.g.cs
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8ChessPlayer.g.cs
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8ChessSettings.g.cs
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\App.g.cs
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess_MarkupCompile.cache
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess_MarkupCompile.lref
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\App.baml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\AboutSk8Chess.baml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\MainWindow.baml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\Pieces.baml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8ChessPlayer.baml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8ChessSettings.baml
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.g.resources
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.Properties.Resources.resources
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csproj.GenerateResource.Cache
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csproj.CoreCompileInputs.cache
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.exe
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.pdb
