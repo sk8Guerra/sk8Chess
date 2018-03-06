@@ -14,6 +14,7 @@ namespace sk8Chess
 {
     public partial class MainWindow : Window
     {
+        //Have to divide this mega class into lil clases
         DispatcherTimer timer = new DispatcherTimer();
         int seconds, minutes, hours;
         
