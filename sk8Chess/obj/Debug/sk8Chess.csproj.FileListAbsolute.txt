@@ -107,3 +107,4 @@ C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.cspr
 C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csproj.CoreCompileInputs.cache
 C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.exe
 C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.pdb
+C:\Users\Jorge Guerra\Documents\GitHub\sk8Chess\sk8Chess\obj\Debug\sk8Chess.csproj.CopyComplete
